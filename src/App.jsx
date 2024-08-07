@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // Services
 import * as weatherService from './services/weatherService';
@@ -27,7 +27,22 @@ const App = () => {
     setWeather(newWeatherState);
   }
 
-  console.log(weather)
+
+  // useEffect( ()=>{
+  //   console.log('RUNDS ON EVERY RENDER')
+  // })
+  useEffect( ()=>{
+    console.log('RUNDS ON UPDATE')
+  }, [weather])
+
+  useEffect( ()=>{
+    console.log('Comp mounted')
+    async function fetchWeather(){
+      await getWeather('Manama')
+    }
+
+    fetchWeather()
+  }, [])
 
   return (
     <main>
