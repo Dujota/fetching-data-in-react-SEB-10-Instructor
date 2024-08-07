@@ -28,21 +28,21 @@ const App = () => {
   }
 
 
-  // useEffect( ()=>{
-  //   console.log('RUNDS ON EVERY RENDER')
-  // })
+  useEffect( ()=>{
+    getWeather('Manama')
+  }, [])
   useEffect( ()=>{
     console.log('RUNDS ON UPDATE')
   }, [weather])
 
-  useEffect( ()=>{
-    console.log('Comp mounted')
-    async function fetchWeather(){
-      await getWeather('Manama')
-    }
+  // useEffect( ()=>{
+  //   console.log('Comp mounted')
+  //   async function fetchWeather(){
+  //     await getWeather('Manama')
+  //   }
 
-    fetchWeather()
-  }, [])
+  //   fetchWeather()
+  // }, [])
 
   return (
     <main>
